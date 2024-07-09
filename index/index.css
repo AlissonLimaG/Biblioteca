@@ -1,0 +1,39 @@
+:root{
+    --corAzulContainer: #304268;
+    --corBranco:  #ffffff;
+    --corAzulClaroLinha: #91BED4;
+    --corCinzaClaroBox:  #f5f5f5;
+    --corAzulBotao: #323C59;
+    --corCinza: #CCCCCC;
+    --corAzulMarinho: #363636;
+    --corAzulClaro: #29AAE3;
+    
+}
+.navbar{
+    background: #304268;
+}
+.navbar-brand h1{
+    color: whitesmoke;
+    font-size: clamp(1.2rem,4vw,2.8rem);
+    margin: 0;
+}
+.navbar a{
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    color: var(--corCinzaClaroBox)
+}
+.navbar a:active{
+    color: whitesmoke !important;
+}
+.navbar i{
+    cursor: pointer;
+}
+.navbar-toggler{
+    border: none !important;
+}
+.navbar-toggler:focus{
+    box-shadow: 0 0 5px var(--corCinza) !important;
+}
+.navbar-toggler-icon{
+    background-image: url(../index/icons/option.svg) !important;
+    
+}

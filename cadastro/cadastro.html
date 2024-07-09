@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BibliotecaVirtual</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="cadastro.css">
+    </head>
+    <body class="d-flex justify-content-center align-items-center">
+        <div class="col-10 col-sm-6 col-md-5 col-lg-4 p-3" id="container">
+            <form class="login-form" id="login">
+                <h2 class="text-center mt-5 mb-5" id="titulo">CADASTRO</h2>
+                <div class="form-group mb-5">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Usuário" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2"><i class="bi bi-person"></i></span>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="E-mail" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2"><i class="bi bi-envelope"></i></span>
+                    </div>
+                    <div class="input-group mb-3 forca-senha" id="divSenha">
+                        <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+                        <!-- <img class="icon3" src="imagens/lock.svg"/> -->
+                        <span id="basic-addon2" class="input-group-text cursor" onclick="toggleSenhaVisibility()"><i class="bi bi-eye"></i></span>
+                    </div>
+                    <div id="forcaSenha" class="forca-senha-msg"></div>
+                </div>
+                <div class="d-grid col-4 mx-auto">
+                    <button type="button" onclick="paginaPrincipal()" class="btn btn-primary" id="botao">Cadastrar</button>
+                </div>
+                <div class="text-center mt-3">
+                    <a id="link" class="link-underline-opacity-0" href="login.html">Voltar</a>
+                </div>
+            </form>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <script src="cadastro.js"></script>
+    </body>
+</html>
