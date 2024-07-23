@@ -46,8 +46,6 @@ export const dados = [
     }
 ]
 
-
-
 export const createCard = (imgSrc,titulo,desc)=>{
     const cardContainer = document.getElementById('lineCards');
 
@@ -56,6 +54,9 @@ export const createCard = (imgSrc,titulo,desc)=>{
 
     const cardDiv = document.createElement('div');
     cardDiv.className = 'card';
+    cardDiv.addEventListener('click',(evt)=>{
+        cardDiv.classList.toggle('expandBox')
+    })
 
     const img = document.createElement('img');
     img.src = imgSrc;
@@ -66,7 +67,8 @@ export const createCard = (imgSrc,titulo,desc)=>{
     cardBodyDiv.className = 'card-body';
 
     const cardTitle = document.createElement('h5');
-    cardTitle.className = 'card-title';
+    cardTitle.className = 'card-title mt-sm-3';
+    cardTitle.id = 'cardTitle'
     cardTitle.textContent = titulo;
 
     const cardText = document.createElement('p');

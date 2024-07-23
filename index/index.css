@@ -11,7 +11,11 @@
 *{
     margin: 0 !important;
 }
+body{
+    background-color: #ffffff;
 }
+}
+/* HEADER */
 .navbar{
     background: #304268;
 }
@@ -19,11 +23,6 @@
     .navbar{
         height: 10vh;
     }
-}
-.navbar-brand h1{
-    color: whitesmoke;
-    font-size: clamp(1.2rem,3vw,5rem);
-    margin: 0;
 }
 .navbar a{
     font-size: clamp(0.7rem, 1.4vw, 2.8rem);
@@ -46,14 +45,14 @@
     background-image: url(../index/icons/option.svg) !important;
    
 
-
+/* SEÇÃO 1 */
 }
 div.main{
     min-height: 100vh;
 }
 div#sec1{
     padding: 0 !important;
-    height: clamp(24vh,50vw,55vh);
+    height: clamp(24vh,50vw,50vh);
     overflow: hidden;
 }
 div.carousel-item{
@@ -62,8 +61,8 @@ div.carousel-item{
 div.background{
     filter: brightness(0.6) contrast(1);
     padding: 0 !important;
-    height: clamp(24vh,50vw,55vh);
-    background-image: url(./Imgs/background.jpg);
+    height: clamp(24vh,50vw,50vh);
+    background-image: url(./Imgs/background3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -81,23 +80,32 @@ div.background{
     text-align: start !important;
 }
 
+/* INPUT */
 .form-control:focus{
     border-color: none !important;
     box-shadow: none !important;
     border: 1px solid #3c6af5 !important;
 }
+
+/* AREA DE CARDS */
+#secCatalogo{
+    background-color: white;
+    box-shadow: 
+    0 0px 30px rgba(182, 182, 182, 0.5) inset, /* sombra do topo para o centro */
+    0 0px 30px rgba(189, 189, 189, 0.5) inset; /* sombra do fundo para o centro */}
+
 #containerCardsMax{
-    padding: 1rem;
-    height: 80vh !important;
+    height: 90vh !important;
     overflow-y: scroll;
-    border-top: 1px solid #304268;
+    border-radius: 10px;
 }
 .container-card{
+    transform: scale(0.9);
     width: clamp(150px,100%,350px) !important;
     margin-bottom: 1rem !important;
 }
 .card{
-    background: linear-gradient(to bottom, #323C59 0%, #4670af 25%, whitesmoke 65%);
+    background: linear-gradient(to bottom, #677191 0%, #83a1ce 25%, whitesmoke 65%);
     padding: 5px;
     height: 100% !important;
 }
@@ -113,7 +121,7 @@ div.background{
 }
 .card-title{
     font-size: 17px !important;
-    color:#363636!important;
+    color:#323C59 !important;
     font-weight: 900 !important;
     margin-bottom: 4px !important;
 }
@@ -127,24 +135,79 @@ div.background{
     height: 30px !important;
     width: 35% !important;
     padding: 6px !important;
-    font-size: 10px !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     background-color:#323C59 !important;
     border:none !important;
 }
 
+/* SUGESTOES */
+#containerSugestao{
+    padding-top: 1rem !important;
+    height: clamp(270px, 50vw, 400px);
+    background-color: #91BED4;
+}
+#capsulaSugestao{
+    padding: 0.5rem 12px 1rem 12px;
+    width: 50%;
+    background-color: #304268;
+    border-radius: 15px;
+    flex-direction: column;
+}
+#capsulaSugestao h1{
+    font-weight: 700;
+    color: #f5f5f5;
+}
+#capsulaSugestao textarea{
+    padding: 5px 8px 5px 8px;
+    border-radius: 10px;
+    width: 85%;
+    height: clamp(100px,15vw,170px);
+}
+#capsulaSugestao button{
+    border-radius: 20px;
+    height: 33px !important;
+    background-color: #eecb7e !important;
+    align-self: center !important;
+    font-size: 12px !important;
+}
+.tituloSobreNos{
+    font-weight: 600;
+    font-size: clamp(1.2rem, 3vw,2rem);
+}
+.txtSobreNos{
+    font-weight: 500;
+    font-size: clamp(0.7rem,2vw,1rem);
+}
+#footer{
+    margin-top: 0 !important;
+    height: 60px;
+    display: flex;
+    background-color: #304268;
+    color: #f5f5f5;
+}
+#footer img{
+    position: absolute;
+}
+#footer #copy{
+    justify-self: end;
+}
 
+
+/* RESPONSIVIDADE */
 @media (max-width:576px){
+    #logo{
+        width: 55px;
+    }
     .input-group{
-        width: 50% !important;
+        width: 70% !important;
     }
     .container-xxl{
         padding: 0 5px !important;
     }
-    .row{
-        gap: 8px;
-    }
     .container-card{
+        margin-bottom: 0 !important;
+        transform: scale(0.95);
         width: 100% !important;
         padding: 0 !important;
     }
@@ -159,15 +222,37 @@ div.background{
         width: 50% !important;
     }
     .card-title{
-        color: rgb(228, 228, 228) !important;
+        padding: 5px;
+        font-size: 18px !important;
+        max-height: 50px;
+        overflow: scroll;
+        color:#323C59!important;
+    }
+    .card-text{
+        padding: 5px;
+        max-height: 130px;
+        overflow: scroll;
     }
     .card button, .btn-primary{
         width: 100% !important;
+    }
+    #capsulaSugestao{
+        width: 90%;
+    }
+    #capsulaSugestao textarea{
+        width: 95%;
+
+    }
+    #capsulaSugestao button{
+        width: 60% !important;
     }
 }
 @media (min-width:576px) and (max-width:1900px){
     .input-group{
         width: 25% !important;
+    }
+    #containerCardsMax{
+        transform: scale(0.96);
     }
 }
 @media (min-width:1901px){
@@ -188,4 +273,13 @@ div.background{
     .bi-search{
         transform: scale(1.5);
     }
+    #capsulaSugestao{
+        width: 40%;
+    }
+    #footer{
+        height: 70px;
+    }
+}
+.expandBox{
+    flex-direction: column !important;
 }
