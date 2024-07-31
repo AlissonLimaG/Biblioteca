@@ -1,0 +1,16 @@
+USUARIO 1
+Login: usuario1@docente.com 
+Senha: Docente123
+
+
+USUARIO 2
+Login: usuario2@adm.com
+Senha: Adm123
+
+
+USUARIO 3
+Login: usuario3@discente.com
+Senha: Discente123
+
+
+SENHA DOS PDF's: 12345

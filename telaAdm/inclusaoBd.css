@@ -2,23 +2,57 @@
     --corAzulContainer: #304268;
     --corBranco:  #ffffff;
     --corAzulClaroLinha: #91BED4;
+    --corAzulComentario: #92bed5;
     --corCinzaClaroBox:  #f5f5f5;
     --corAzulBotao: #323C59;
     --corCinza: #CCCCCC;
     --corAzulMarinho: #363636;
     --corAzulClaro: #29AAE3;
-  
+    --fontTitulo-src: url(roboto/RobotoSlab-VariableFont_wght.ttf) format('woff2');
+}
 *{
     margin: 0 !important;
 }
-body{
-    background-color: #ffffff;
+
+/* TOPO */
+#cabecalho{
+    background-color: var(--corAzulBotao);
+    height: 70px;
 }
-}
-/* HEADER */
 .navbar{
     background: #304268;
 }
+
+
+/* CONTAINER CRUD */
+#container{
+    background-color: var(--corCinza);
+    border-radius: 20px;
+}
+#opcoes{
+    background-color: var(--corCinzaClaroBox);
+    height: 40px;
+    width: 100px;
+}
+#pdfInput{
+    background-color: var(--corCinzaClaroBox);
+    height: 40px;
+}
+#descricao{
+    height: 130px;
+    background-color: var(--corCinzaClaroBox);
+    padding: 1rem;
+}
+#button{
+    background-color: var(--corAzulBotao);
+    border-radius: 20px;
+    margin-bottom: 1rem !important;
+}
+#botao{
+    color: var(--corBranco);
+    font-family: var(--fontTitulo-src);
+}
+
 @media (min-width:1800px){
     .navbar{
         height: 10vh;
@@ -42,8 +76,15 @@ body{
     box-shadow: 0 0 5px var(--corCinza) !important;
 }
 .navbar-toggler-icon{
-    background-image: url(../icons/option.svg) !important;   
+    background-image: url(../icons/option.svg) !important;
 }
+
+.form-control:focus{
+    border-color: none !important;
+    box-shadow: none !important;
+    border: 1px solid #3c6af5 !important;
+}
+
 
 /* CARD DE PERFIL */
 .profile-container {
@@ -51,7 +92,6 @@ body{
     position: relative;
     display: inline-block;
 }
-
 .profile-card{
     border-radius: 15px;
     flex-direction: column;
@@ -101,7 +141,6 @@ body{
 .profile-card a:hover{
     text-decoration:underline;
 }
-
 .profile-card button{
     border-radius: 50px !important;
     font-size: 15px;
@@ -115,47 +154,30 @@ body{
     border: none;
     cursor: pointer;
 }
-
-/* SEÇÃO 1 */
-div.main{
-    min-height: 100vh;
-}
-div#sec1{
-    padding: 0 !important;
-    height: clamp(24vh,50vw,50vh);
-    overflow: hidden;
-}
-div.carousel-item{
-    transition: none !important;
-}
-div.background{
-    filter: brightness(0.6) contrast(1);
-    padding: 0 !important;
-    height: clamp(24vh,50vw,50vh);
-    background-image: url(./Imgs/background3.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: background-image 0.9s ease-in-out;
-}
-.carousel-caption {
-    position: absolute;
-    top: 30% !important;
-    right: none !important;
-    bottom: none !important;
-    left: 5% !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    color: #fff;
-    text-align: start !important;
+.expandBox{
+    flex-direction: column !important;
 }
 
-/* INPUT */
-.form-control:focus{
-    border-color: none !important;
-    box-shadow: none !important;
-    border: 1px solid #3c6af5 !important;
+.profile-card button{
+    align-self: flex-end !important;
+    height: 30px !important;
+    width: 35% !important;
+    padding: 6px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    background-color:#323C59 !important;
+    border:none !important;
 }
+@media (min-width:576px) and (max-width:999px){
+    .profile-card{
+        top: 100%;
+        left: -800% !important;
+        width: 200px !important;
+        height: 250px !important;
+        transform: scale(0.9);
+    }
+}
+
 
 /* AREA DE CARDS */
 #secCatalogo{
@@ -167,6 +189,7 @@ div.background{
 #containerCardsMax{
     height: 90vh !important;
     overflow-y: scroll;
+    overflow-x: hidden;
     border-radius: 10px;
 }
 #containerCardsMax::-webkit-scrollbar {
@@ -180,7 +203,8 @@ div.background{
 #containerCardsMax::-webkit-scrollbar-thumb {
     background: #677191;
     border-radius: 10px;
-}
+  }
+
 .container-card{
     transform: scale(0.9);
     width: clamp(150px,100%,350px) !important;
@@ -212,6 +236,10 @@ div.background{
     font-size: 13px !important;
     margin-bottom: 4px !important;
 }
+.card #divButtons{
+    display: flex;
+    align-items: end;
+}
 .card button , .btn-primary{
     align-self: flex-end !important;
     height: 30px !important;
@@ -219,42 +247,15 @@ div.background{
     padding: 6px !important;
     font-size: 12px !important;
     font-weight: 600 !important;
-    background-color:#323C59 !important;
+    background-color:#323C59;
     border:none !important;
 }
 
-/* SUGESTOES */
-#containerSugestao{
-    padding-top: 1rem !important;
-    height: clamp(270px, 50vw, 400px);
-    background-color: #91BED4;
-}
-#capsulaSugestao{
-    padding: 0.5rem 12px 1rem 12px;
-    width: 50%;
-    background-color: #304268;
-    border-radius: 15px;
-    flex-direction: column;
-}
-#capsulaSugestao h1{
-    font-weight: 700;
-    color: #f5f5f5;
-}
-#capsulaSugestao textarea{
-    padding: 5px 8px 5px 8px;
-    border-radius: 10px;
-    width: 85%;
-    height: clamp(100px,15vw,170px);
-}
-#capsulaSugestao button{
-    border-radius: 20px;
-    height: 33px !important;
-    background-color: #eecb7e !important;
-    align-self: center !important;
-    font-size: 12px !important;
-}
 
 /* SOBRE NÓS */
+#secSobreNos{
+    max-width: 100vw;
+}
 .tituloSobreNos{
     font-weight: 600;
     font-size: clamp(1.2rem, 3vw,2rem);
@@ -263,6 +264,7 @@ div.background{
     font-weight: 500;
     font-size: clamp(0.7rem,2vw,1rem);
 }
+
 
 /* FOOTER */
 #footer{
@@ -277,7 +279,7 @@ div.background{
 }
 
 
-/* RESPONSIVIDADE */
+/* RESPOSIVIDADE */
 @media (max-width:576px){
     #logo{
         width: 55px;
@@ -285,11 +287,10 @@ div.background{
     .profile-card{
         top: 100%;
         left: 15%;
-        height: 220px;
     }
     @keyframes revelCard {
         0%{transform: scale(0.5) translate(-150px, -180px);}
-        50%{transform: scale(0.75);}
+        50%{transform: scale(0.9);}
         100%{transform: scale(1) translate(0,0);}
     }
     .input-group{
@@ -308,7 +309,7 @@ div.background{
         transform: scale(0.9);
         border-radius: 4px !important;
         display: flex !important;
-        flex-direction: row !important;
+        flex-direction: row;
         width: 100%;
     }
     .card img{
@@ -332,24 +333,8 @@ div.background{
     .card button, .btn-primary{
         width: 100% !important;
     }
-    #capsulaSugestao{
-        width: 90%;
-    }
-    #capsulaSugestao textarea{
-        width: 95%;
-
-    }
-    #capsulaSugestao button{
-        width: 60% !important;
-    }
-}
-@media (min-width:576px) and (max-width:999px){
-    .profile-card{
-        top: 100%;
-        left: -800% !important;
-        width: 200px !important;
-        height: 250px !important;
-        transform: scale(0.9);
+    .card #buttDelete{
+        margin: 0 !important;
     }
 }
 @media (min-width:576px) and (max-width:1900px){
@@ -384,11 +369,5 @@ div.background{
     #footer{
         height: 70px;
     }
-}
-.expandBox{
-    flex-direction: column !important;
-}
-body {
-    font-family: Arial, sans-serif;
 }
 

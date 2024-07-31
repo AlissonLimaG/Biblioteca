@@ -13,7 +13,7 @@
 }
 body{
     height: 100vh;
-    background:url(imagens/tec3.jpeg) no-repeat center center;
+    background:url(../imagens/tecnologia-da-informacao-890x500-1-1.jpg) no-repeat center center;
     background-position: center;
     background-size: cover;
 }
@@ -28,43 +28,32 @@ body{
     box-shadow: 5px 5px 10px 0 rgb(0, 0, 0, 0.5);
     
 }
-#email{
-    height: 40px;
-    background-color: var(--corCinzaClaroBox);
-    outline: none;
-    z-index: 0;
+.logo-container {
+    text-align: center;
+    margin-bottom: 3px;
+    margin-top: -60px;
+}
+
+.logo {
+    width: 110px; 
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover; 
+    
 }
 #titulo{
-    font-size: 50px;
+    font-size: 45px;
     font-family: 'Merriweather', serif; 
     font-weight: bolder;
     color: var(--corBranco);
     text-shadow: 3px 3px 6px black;
 }
-.icon1 {
-    position: absolute; 
-    width: 18px;
-    z-index: 1; /* Garante que o ícone fique acima da caixa */
-    top: 38%; 
-    right: 30px; /* Posiciona a 10px da borda esquerda */
-    transform: translateY(-50%); /* Ajusta a posição vertical para centralizar perfeitamente */
- }
-#botao{
-    height: 40px;
-    border-radius: 20px;
-    background-color: var(--corAzulBotao);
-    border: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra azul suave */
-    transition: box-shadow 0.3s ease;
+#text{
+    font-size: 20px;
+    color: var(--corCinza);
 }
-
-#botao:hover {
-  box-shadow: 0 0 15px rgba(0, 123, 255, 1); /* Sombra azul neon intensa */
-  cursor: pointer; /* Mudança do cursor para indicar que é clicável */
-}
- 
 #link{
-    text-decoration: none;
+    
     font-size: 15px;
-    color: var(--corAzulContainer);
+    color: var(--corBranco);
  }

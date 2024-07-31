@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en-BR">
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+    <link href="inclusaoBd.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- TOPO -->
+    <nav class="navbar navbar-expand-sm p-0">
+        <div class="container-fluid">
+            <a class="navbar-brand p-0" href="../index/indexAdm.html">
+                <img src="../icons/logo.png" alt="" width="70" style="position: relative;" id="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto me-3 me-lg-5 mb-lg-0">
+                    <li class="nav-item me-lg-4">
+                        <a class="nav-link" aria-current="page" href="#tituloCatalogo">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index/indexAdm.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-block d-sm-none" href="#" id="perfil">Perfil</a>
+                        <div class="profile-card" id="profileCardMobile">
+                            <i class="bi bi-person-circle text-light"></i>
+                            <div>
+                                <h2>USUÁRIO</h2>
+                                <p style="font-size: 12px; color: #29AAE3;">ADMIN</p>
+                                <p class="m-0">Email@instituicao.com</p>
+                                <a href="inclusaoBd.html" style="font-size: 12px;">PAINEL DE CONTROLE</a>
+                            </div>
+                            <button onclick="hyperlink('../login/login.html')" class="btn btn-primary mt-3" id="buttonCard"
+                                style="align-self: center !important;">Sair</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-none d-sm-block me-lg-4 profile-container">
+                <i class="bi bi-person-circle text-light" id="profileIcon"></i>
+                <div class="profile-card" id="profileCard">
+                    <i class="bi bi-person-circle text-light"></i>
+                    <div>
+                        <h2>USUÁRIO</h2>
+                        <p style="font-size: 12px; color: #29AAE3;">ADMIN</p>
+                        <p class="m-0">Email@instituicao.com</p>
+                        <a href="inclusaoBd.html" style="font-size: 12px;">PAINEL DE CONTROLE</a>
+                    </div>
+                    <button onclick="hyperlink('../login/login.html')" class="btn btn-primary mt-3" id="buttonCard"
+                        style="align-self: center !important;">Sair</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTAINER CADASTRO -->
+    <main class="d-grid justify-content-center align-items-center mt-5 col-12">
+        <form class="mb-5 mx-auto row col-12">
+            <div class="container col-11 col-md-7 col-xxl-6 pt-3 mx-auto" id="container">
+                <div class="form-group">
+                    <label for="titulo">TITULO:</label>
+                    <input type="text" class="form-control" id="titulo" required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="autor">AUTOR:</label>
+                    <input type="text" class="form-control" id="autor" required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="editora">EDITORA:</label>
+                    <input type="text" class="form-control" id="editora">
+                </div>
+                <div class="form-group d-flex mt-3 justify-content-center align-items-center gap-5" id="selecao">
+                    <div class="col-3">
+                        <label for="imagem">CAPA:</label>
+                        <input type="file" class="form-control" id="imagem" name="imagem" accept="image/*">
+                    </div>
+                    <div class="col-3">
+                        <form action="/upload" method="post" enctype="multipart/form-data">
+                            <label for="pdfInput">PDF:</label>
+                            <input type="file" class="form-control" id="pdfInput" name="pdf" accept=".pdf">
+                        </form>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="mt-3" for="descricao">DESCRIÇÃO:</label>
+                    <textarea type="text" class="form-control" id="descricao" minlength="10" required></textarea>
+                </div>
+                <div class="d-grid mt-4 gap-2 col-4 mx-auto" id="button">
+                    <button type="submit" class="btn" id="botao" style="font-size: clamp(0.75rem,3vw,1.3rem);">CADASTRAR</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- CATALOGO TITLE -->
+        <div class="container-flex text-center" id="tituloCatalogo">
+            <h2 class="mt-3" style="font-size: clamp(1.3rem,3.5vw,2.5rem); font-weight: 600;color: #304268;">CATÁLOGO</h2>
+          </div>
+
+        <!-- INPUT DE FILTRO -->
+        <div class="container-flex mt-sm-3 mt-2 pb-4 d-flex justify-content-center" id="containerInput">
+            <div class="input-group mb-1 w-sm-25">
+              <input id="SrcInput" type="text" class="form-control w-50" placeholder="Pesquisar"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <span class="input-group-text" id="basic-addon2"><i class="bi bi-search"></i></span>
+            </div>
+          </div>
+
+        <!-- CONTAINER DE CARDS -->
+        <div class="container-flex py-3" id="secCatalogo">
+            <div class="container-flex" id="containerCardsMax">
+                <div class="row d-flex justify-content-center" style="flex-wrap: wrap;" id="lineCards">
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+
+    </main>
+    <!-- SOBRE NÓS -->
+    <div class="container-flex" id="secSobreNos">
+        <div class="row">
+          <div class="col-12 col-sm py-4 px-sm-5 px-2 pb-0 mb-md-4 colSobreNos">
+            <h1 class="mb-2 tituloSobreNos">SOBRE NÓS</h1>
+            <p class="txtSobreNos">O CodeLibrary é o resultado da colaboração entre Alisson Gabriel, Lilian Souza e Luana Marques, uma equipe apaixonada por tecnologia e design.
+                 Somos um grupo de entusiastas da tecnologia que ama compartilhar conhecimento. Com a expertise de Alisson e Lilian no desenvolvimento front-end e a criatividade de Luana no design, conseguimos criar uma plataforma visualmente atraente e fácil de usar. Nossa paixão pela programação nos impulsiona a oferecer os melhores recursos para a comunidade de desenvolvedores.</p>
+          </div>
+          <div class="col-12 col-sm py-4 px-sm-5 px-1 mb-md-4 colSobreNos">
+            <h1 class="mb-2 tituloSobreNos">PROJETO</h1>
+            <p class="txtSobreNos">Bem-vindo à CodeLibrary, a biblioteca virtual das faculdades de tecnologia. Nossa missão é facilitar o fornecimento de livros para alunos e professores de instituições de ensino tecnológico.
+                O principal objetivo da plataforma CodeLibrary é promover a virtualização e simplificar a administração das bibliotecas dessas instituições, fornecendo uma interface simples e intuitiva para manusear o acervo digital de seus livros.
+               <br>
+               Estamos comprometidos em apoiar o avanço da educação tecnológica, fornecendo uma biblioteca virtual que atenda às necessidades dos estudantes e educadores.
+               Nosso foco é na qualidade e acessibilidade dos recursos, contribuindo para o desenvolvimento do conhecimento e a formação de profissionais capacitados.</p>
+          </div>
+        </div>
+      </div>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="col-12 d-grid p-2 mt-5 d-flex justify-content-between align-items-center">
+        <p id="copy" class="my-auto">&copy; CodeLibrary</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./inclusaoBd.js"></script>
+    <script>
+    const search = document.getElementById('SrcInput')
+    const lineCards = document.getElementById('lineCards')
+        
+    function renderCards(cards) {
+      lineCards.innerHTML = ''
+      cards.forEach((card) => {
+        createCardCrud(card.img, card.titulo, card.desc, card.arquivo,card.autor,card.editora);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCards(dados);
+    });
+
+    search.addEventListener('input', (evt) => {
+      const val = evt.target.value.toLowerCase();
+      const filteredCards = dados.filter(card => card.titulo.toLowerCase().includes(val));
+      renderCards(filteredCards);
+    });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const linkPerfil = document.getElementById('perfil')
+            const profileIcon = document.getElementById('profileIcon');
+            const profileCard = document.getElementById('profileCard');
+            const profileCardMobile = document.getElementById('profileCardMobile');
+            const buttonExit = document.getElementById('buttonCard');
+
+            linkPerfil.addEventListener('click', () => {
+                profileCardMobile.style.display = profileCardMobile.style.display === 'flex' ? 'none' : 'flex';
+            });
+            window.addEventListener('click', function (event) {
+                if (!linkPerfil.contains(event.target) && !profileCardMobile.contains(event.target)) {
+                    profileCardMobile.style.display = 'none';
+                }
+            });
+
+            profileIcon.addEventListener('click', () => {
+                profileCard.style.display = profileCard.style.display === 'flex' ? 'none' : 'flex';
+            });
+
+            window.addEventListener('click', function (event) {
+                if (!profileIcon.contains(event.target) && !profileCard.contains(event.target)) {
+                    profileCard.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
