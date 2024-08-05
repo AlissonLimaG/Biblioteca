@@ -12,18 +12,18 @@
         <div class="logo-container">
             <img class="logo" src="../imagens/logo.jpg" alt="Logo">
         </div>
-        <form class="login-form" id="login" action="../login/login.html">
+        <form class="login-form" id="cadastro" >
             <h2 class="text-center mt-3 mb-5" id="titulo">CADASTRO</h2>
             <div class="form-group mb-4 position-relative">
-                <input type="text" class="form-control" id="name" placeholder="Nome completo" required>
+                <input type="text" class="form-control" id="name" name="nome" placeholder="Nome completo" required>
                 <img class="icon1" src="../imagens/file-font.svg"/>
             </div>
             <div class="form-group mb-4 position-relative">
-                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                 <img class="icon2" src="../imagens/person.svg"/>
             </div>
             <div class="form-group forca-senha mb-4 position-relative" id="divSenha">
-                <input type="password" class="form-control" id="senha" placeholder="Senha" minlength="8" required>
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" minlength="8" required>
                 <span id="togglePassword" class="toggle-Password" onclick="toggleSenhaVisibility()">Mostrar</span>
             </div>
             <div id="forcaSenha" class="forca-senha-msg"></div>
