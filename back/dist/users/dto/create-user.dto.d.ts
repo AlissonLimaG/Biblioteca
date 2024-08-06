@@ -3,3 +3,7 @@ export declare class CreateUserDto {
     email: string;
     senha: string;
 }
+export declare class LoginUserDto {
+    email: string;
+    senha: string;
+}

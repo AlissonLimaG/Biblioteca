@@ -1,5 +1,5 @@
 import { Injectable, BadRequestException, NotFoundException, ConflictException } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
+import { CreateUserDto,LoginUserDto } from './dto/create-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
@@ -21,30 +21,22 @@ export class UsersService {
     this.userRepository.save(createUserDto);
 
     //retorna uma mensagem de sucesso
-    console.log('Cadastrado!')
     return { message: 'Cadastro realizado com sucesso!' }
 
   }
+  
+  async login(userLogin: LoginUserDto) {
+    const user = await this.userRepository.findOneBy({ email: userLogin.email, senha: userLogin.senha })
 
+    if (user) {
+      if (user.email === 'adm@gmail.com' && user.senha === 'Adm@123') {
+        return { message: 'adm' }
+      }
+      else {
+        return { message: 'user' }
+      }
+    }
 
-
-//   findAll() {
-//     return this.userRepository.find();
-//   }
-
-//   async findOne(id: number) {
-//     const user = await this.userRepository.findOneBy({ id });
-//     if (!user) {
-//       throw new BadRequestException('Usuário não encontrado')
-//     }
-//     return user;
-//   }
-
-//   update(id: number, updateUserDto: UpdateUserDto) {
-//     return `This action updates a #${id} user`;
-//   }
-
-//   remove(id: number) {
-//     return `This action removes a #${id} user`;
-//   }
- }
+    return { message: 'erro' }
+  }
+}

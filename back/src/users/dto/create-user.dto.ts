@@ -14,3 +14,13 @@ export class CreateUserDto {
     senha: string;
 
 }
+
+export class LoginUserDto{
+    @IsString()
+    @IsNotEmpty({message:'Preencha o campo de email'})
+    email: string;
+
+    @IsString()
+    @IsNotEmpty({message:' Preencha o campo de senha'})
+    senha: string;
+}

@@ -26,8 +26,19 @@ let UsersService = class UsersService {
             throw new common_1.ConflictException('Email já cadastrado');
         }
         this.userRepository.save(createUserDto);
-        console.log('Cadastrado!');
         return { message: 'Cadastro realizado com sucesso!' };
+    }
+    async login(userLogin) {
+        const user = await this.userRepository.findOneBy({ email: userLogin.email, senha: userLogin.senha });
+        if (user) {
+            if (user.email === 'adm@gmail.com' && user.senha === 'Adm@123') {
+                return { message: 'adm' };
+            }
+            else {
+                return { message: 'user' };
+            }
+        }
+        return { message: 'erro' };
     }
 };
 exports.UsersService = UsersService;
