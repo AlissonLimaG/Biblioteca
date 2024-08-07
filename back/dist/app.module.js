@@ -13,6 +13,8 @@ const app_service_1 = require("./app.service");
 const users_module_1 = require("./users/users.module");
 const typeorm_1 = require("@nestjs/typeorm");
 const user_entity_1 = require("./users/entities/user.entity");
+const books_module_1 = require("./books/books.module");
+const book_entity_1 = require("./books/entities/book.entity");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -25,10 +27,11 @@ exports.AppModule = AppModule = __decorate([
                 username: 'root',
                 password: 'p3d2-9i10-jnet',
                 database: 'testeCadastro',
-                entities: [user_entity_1.User],
+                entities: [user_entity_1.User, book_entity_1.Book],
                 synchronize: true
             }),
-            users_module_1.UsersModule
+            users_module_1.UsersModule,
+            books_module_1.BooksModule
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
