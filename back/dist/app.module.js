@@ -15,6 +15,8 @@ const typeorm_1 = require("@nestjs/typeorm");
 const user_entity_1 = require("./users/entities/user.entity");
 const books_module_1 = require("./books/books.module");
 const book_entity_1 = require("./books/entities/book.entity");
+const path_1 = require("path");
+const serve_static_1 = require("@nestjs/serve-static");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -31,7 +33,11 @@ exports.AppModule = AppModule = __decorate([
                 synchronize: true
             }),
             users_module_1.UsersModule,
-            books_module_1.BooksModule
+            books_module_1.BooksModule,
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: (0, path_1.join)(__dirname, '..', 'uploads'),
+                serveRoot: '/uploads',
+            })
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

@@ -6,9 +6,9 @@ const common_1 = require("@nestjs/common");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.enableCors({
-        origin: '*',
+        origin: 'http://127.0.0.1:5500',
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-        allowedHeaders: 'Content-Type, Accept',
+        credentials: true,
     });
     app.useGlobalPipes(new common_1.ValidationPipe());
     await app.listen(3000);

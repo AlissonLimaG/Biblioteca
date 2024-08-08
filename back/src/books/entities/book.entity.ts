@@ -14,9 +14,9 @@ export class Book {
     @Column()
     descricao: string
 
-    @Column({unique:true})
+    @Column({unique:true,nullable:true})
     livro: string
 
-    @Column({unique:true})
+    @Column({unique:true,nullable:true})
     capa: string
 }

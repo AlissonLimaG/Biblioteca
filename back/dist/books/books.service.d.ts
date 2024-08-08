@@ -8,8 +8,10 @@ export declare class BooksService {
     createBook(dados: CreateBookDto, files: {
         capa?: Express.Multer.File[];
         livro?: Express.Multer.File[];
-    }): Promise<Book>;
-    findAll(): string;
+    }): Promise<{
+        message: string;
+    }>;
+    findAll(): Promise<Book[]>;
     findOne(id: number): string;
     update(id: number, updateBookDto: UpdateBookDto): string;
     remove(id: number): string;

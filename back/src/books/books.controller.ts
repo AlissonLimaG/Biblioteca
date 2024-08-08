@@ -36,12 +36,11 @@ export class BooksController {
     @UploadedFiles() files: { capa?: Express.Multer.File[], livro?: Express.Multer.File[] },
   ) {
     console.log(dados)
-    console.log(files)
 
     return this.booksService.createBook(dados,files);
   }
 
-  @Get()
+  @Get('catalogo')
   findAll() {
     return this.booksService.findAll();
   }

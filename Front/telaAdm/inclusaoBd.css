@@ -324,9 +324,6 @@ body::-webkit-scrollbar-thumb {
         flex-direction: row;
         width: 100%;
     }
-    .card img{
-        width: 50% !important;
-    }
     .card-title{
         padding: 5px;
         font-size: 18px !important;

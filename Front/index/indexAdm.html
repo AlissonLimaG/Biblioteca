@@ -160,12 +160,14 @@
     function renderCards(cards) {
       lineCards.innerHTML = ''
       cards.forEach((card) => {
-        createCard(card.img, card.titulo, card.desc, card.arquivo);
+        createCard(card.capa, card.titulo, card.descricao, card.livro);
       });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      renderCards(dados);
+      fetch('http://localhost:3000/books/catalogo')
+      .then(res => res.json())
+      .then(res => renderCards(res))
     });
 
     search.addEventListener('input', (evt) => {

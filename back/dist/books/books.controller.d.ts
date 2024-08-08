@@ -6,6 +6,8 @@ export declare class BooksController {
     create(dados: CreateBookDto, files: {
         capa?: Express.Multer.File[];
         livro?: Express.Multer.File[];
-    }): Promise<import("./entities/book.entity").Book>;
-    findAll(): string;
+    }): Promise<{
+        message: string;
+    }>;
+    findAll(): Promise<import("./entities/book.entity").Book[]>;
 }

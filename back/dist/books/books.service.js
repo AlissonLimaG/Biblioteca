@@ -21,19 +21,20 @@ let BooksService = class BooksService {
     constructor(bookRepository) {
         this.bookRepository = bookRepository;
     }
-    createBook(dados, files) {
-        const capaFilename = files.capa ? `${files.capa[0].destination}/${files.capa[0].filename}` : null;
-        const pdfFilename = files.livro ? `${files.livro[0].destination}/${files.livro[0].filename}` : null;
+    async createBook(dados, files) {
+        const capaFilename = files.capa ? `http://localhost:3000/${files.capa[0].path}` : null;
+        const pdfFilename = files.livro ? `http://localhost:3000/${files.livro[0].path}` : null;
+        console.log(capaFilename);
         const newBook = this.bookRepository.create({
             ...dados,
             capa: capaFilename,
             livro: pdfFilename
         });
-        console.log(newBook);
-        return this.bookRepository.save(newBook);
+        await this.bookRepository.save(newBook);
+        return { message: 'Livro cadastrado com sucesso!' };
     }
     findAll() {
-        return `This action returns all books`;
+        return this.bookRepository.find();
     }
     findOne(id) {
         return `This action returns a #${id} book`;

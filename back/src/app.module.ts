@@ -6,6 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
 import { BooksModule } from './books/books.module';
 import { Book } from './books/entities/book.entity';
+import { join } from 'path';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -19,7 +21,11 @@ import { Book } from './books/entities/book.entity';
     synchronize: true
   }),
     UsersModule,
-    BooksModule
+    BooksModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'),
+      serveRoot: '/uploads',
+    })
   ],
   controllers: [AppController],
   providers: [AppService],

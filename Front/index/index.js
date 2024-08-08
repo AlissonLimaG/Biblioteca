@@ -87,8 +87,9 @@ const frases = [
         button.textContent = 'Download';
     
         const download = document.createElement('a')
-        download.href = archive
-        download.download = archive
+        download.download = titulo + '.pdf'
+        download.href= archive
+        download.target='_blank'
     
     
         cardBodyDiv.appendChild(cardTitle);

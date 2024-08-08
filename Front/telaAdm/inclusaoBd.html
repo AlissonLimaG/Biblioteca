@@ -67,7 +67,7 @@
 
     <!-- CONTAINER CADASTRO -->
     <main class="d-grid justify-content-center align-items-center mt-5 col-12">
-        <form class="mb-5 mx-auto row col-12" enctype="multipart/form-data" method="post" id="cadastroLivros">
+        <form class="mb-5 mx-auto row col-12" id="cadastroLivros">
             <div class="container col-11 col-md-7 col-xxl-6 pt-3 mx-auto" id="container">
                 <div class="form-group">
                     <label for="titulo">TITULO:</label>
@@ -97,7 +97,7 @@
                         required></textarea>
                 </div>
                 <div class="d-grid mt-4 gap-2 col-4 mx-auto" id="button">
-                    <button type="submit" class="btn" id="botao"
+                    <button class="btn" id="botao" type="submit"
                         style="font-size: clamp(0.75rem,3vw,1.3rem);">CADASTRAR</button>
                 </div>
             </div>
@@ -176,12 +176,14 @@
         function renderCards(cards) {
             lineCards.innerHTML = ''
             cards.forEach((card) => {
-                createCardCrud(card.img, card.titulo, card.desc, card.arquivo, card.autor, card.editora);
+                createCardCrud(card.capa, card.titulo, card.descricao, card.livro);
             });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            renderCards(dados);
+            fetch('http://localhost:3000/books/catalogo')
+                .then(res => res.json())
+                .then(res => renderCards(res))
         });
 
         search.addEventListener('input', (evt) => {

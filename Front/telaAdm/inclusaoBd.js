@@ -58,7 +58,7 @@ const dados = [
 ]
 
 
-const createCardCrud = (imgSrc, titulo, desc, archive, autor, editora) => {
+const createCardCrud = (imgSrc, titulo, desc, archive) => {
     const cardContainer = document.getElementById('lineCards');
 
     const colDiv = document.createElement('div');
@@ -145,19 +145,17 @@ const hyperlink = (caminho) => {
     window.location.href = caminho
 }
 
-
-document.getElementById('botao').addEventListener('click', (evt) => {
-    evt.preventDefault();
-    
-    const formElem = document.getElementById('cadastroLivros');
+const butt = document.getElementById('botao')
+const formElem = document.getElementById('cadastroLivros');
+formElem.addEventListener('submit', (evt) => {
+    evt.preventDefault()    
     const formData = new FormData(formElem);
+    console.log(formData)
 
     fetch('http://localhost:3000/books/cadastro', {
         method: 'POST',
         body: formData
     })
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Erro:', error));
+    
 });
 
